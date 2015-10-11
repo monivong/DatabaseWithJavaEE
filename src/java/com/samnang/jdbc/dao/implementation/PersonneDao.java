@@ -222,6 +222,35 @@ public class PersonneDao extends Dao<Personne> {
         }
         return null;
     }
+    public Personne readByName(String nom) {        
+        PreparedStatement stm = null;
+        try {            
+            stm = cnx.prepareStatement("SELECT * FROM personne WHERE nom = ?");
+            stm.setString( 1, nom );
+            ResultSet r = stm.executeQuery();
+            if (r.next()) {
+                Personne p = new Personne();
+                p.setId( r.getInt("id") );
+                p.setNom( r.getString("nom") );
+                p.setPrenom( r.getString("prenom") );
+                p.setAge( r.getInt("age") );
+                r.close();
+                stm.close();
+                return p;
+            }
+        } catch (SQLException exp) {
+			
+        } finally {
+            if (stm != null) {
+                try {
+                    stm.close();
+                } catch (SQLException e) {            
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
 // S E C T I O N    U P D A T E
     @Override
     public boolean update(Personne x) {

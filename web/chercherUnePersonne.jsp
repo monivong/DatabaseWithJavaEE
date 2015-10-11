@@ -8,7 +8,10 @@
             window.onload = function() {
                 document.getElementById("btnId").onclick = function() {
                     window.location.href = "./controleurFrontal?action=chercherUnePersonneParId&id=" + document.getElementById("id").value;
-                }; 
+                } 
+                document.getElementById("btnNom").onclick = function() {
+                    window.location.href = "./controleurFrontal?action=chercherUnePersonneParNom&nom=" + document.getElementById("nom").value;
+                }
             };
         </script>
     </head>
@@ -16,6 +19,9 @@
 <%
         if( request.getAttribute("chercherUnePersonneParId") != null ) {
             out.println("<h3>" + request.getAttribute("chercherUnePersonneParId") + "</h3>");
+        }
+        if( request.getAttribute("chercherUnePersonneParNom") != null) {
+            out.println("<h3>" + request.getAttribute("chercherUnePersonneParNom") + "</h3>");
         }
         if( request.getAttribute("message") != null ) {
             out.println("<h3>" + request.getAttribute("message") + "</h3>");
@@ -29,7 +35,7 @@
             </tr>
             <tr>
                 <td>Chercher par NOM : </td>
-                <td><input type="text" name="nom"/></td>
+                <td><input type="text" id="nom"/></td>
                 <td><input type="button" id="btnNom"/></td>
             </tr>
             <tr>
@@ -53,5 +59,6 @@
                 <td><input type="button" id="btnIsAlive"/></td>
             </tr>
         </table>
+        <a href="./index.jsp">Retourner à la page d'accueil</a>
     </body>
 </html>

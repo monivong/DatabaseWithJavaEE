@@ -28,6 +28,14 @@
         <servlet-name>ChercherUnePersonneParId</servlet-name>
         <servlet-class>com.samnang.web.mvc.ChercherUnePersonneParId</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FindAll</servlet-name>
+        <servlet-class>com.samnang.web.mvc.FindAll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChercherUnePersonneParNom</servlet-name>
+        <servlet-class>com.samnang.web.mvc.ChercherUnePersonneParNom</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Personne</servlet-name>
         <url-pattern>/person</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>ChercherUnePersonneParId</servlet-name>
         <url-pattern>/findById</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindAll</servlet-name>
+        <url-pattern>/retrievePeople</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChercherUnePersonneParNom</servlet-name>
+        <url-pattern>/findByName</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
